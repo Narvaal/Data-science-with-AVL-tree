@@ -27,13 +27,13 @@ int main()
 		O unico  problema é  que parece  
 		que so é  possivel ler uma célula 
 		por vez.Então se executarmos o 
-		código  assima  ele vai exíbir 
+		código  acima  ele vai exíbir 
 		o nome de cada coluna. 
 		
-		Para exibir os dados da tabele 
+		Para exibir os dados da tabela 
 		ele tem que ser executado mais 
 		vezes até ele descer para a
-		próxima  linha.  
+		próxima linha.  
     */  
 }
 
