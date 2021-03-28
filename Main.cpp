@@ -19,10 +19,21 @@ int main()
 		cout << line << endl;		
 	}
 
-    
-    
-    
-    
-    
+    /*
+    	Por enquanto so o básico,
+    	o main é so para abrir o
+    	arquivo e exibir as infromações.
+    	
+		O unico  problema é  que parece  
+		que so é  possivel ler uma célula 
+		por vez.Então se executarmos o 
+		código  assima  ele vai exíbir 
+		o nome de cada coluna. 
+		
+		Para exibir os dados da tabele 
+		ele tem que ser executado mais 
+		vezes até ele descer para a
+		próxima  linha.  
+    */  
 }
 
