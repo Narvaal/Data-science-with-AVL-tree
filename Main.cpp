@@ -1,4 +1,4 @@
-#include<iostream>
+#include "Dados.h"
 #include<fstream>
 using namespace std;
 
@@ -20,20 +20,20 @@ int main()
 	}
 
     /*
-    	Por enquanto so o b·sico,
-    	o main È so para abrir o
-    	arquivo e exibir as infromaÁıes.
+    	Por enquanto so o b√°sico,
+    	o main √© so para abrir o
+    	arquivo e exibir as infroma√ß√µes.
     	
-		O unico  problema È  que parece  
-		que so È  possivel ler uma cÈlula 
-		por vez.Ent„o se executarmos o 
-		cÛdigo  acima  ele vai exÌbir 
+		O unico  problema √©  que parece  
+		que so √©  possivel ler uma c√©lula 
+		por vez.Ent√£o se executarmos o 
+		c√≥digo  acima  ele vai ex√≠bir 
 		o nome de cada coluna. 
 		
 		Para exibir os dados da tabela 
 		ele tem que ser executado mais 
-		vezes atÈ ele descer para a
-		prÛxima linha.  
+		vezes at√© ele descer para a
+		pr√≥xima linha.  
     */  
 }
 
