@@ -5,6 +5,7 @@ class Node{
 private:
 	Node *left, *right;
 	Data values;
+	int height;
 
 
 public:
@@ -14,6 +15,7 @@ public:
 		this->values = data;
 		left = NULL;
 		right = NULL;
+		height = 0;
 	}
     void setLeft(Node *node)
 	{
