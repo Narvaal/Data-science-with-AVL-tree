@@ -1,39 +1,23 @@
-#include "Data.h"
-#include<fstream>
-using namespace std;
+#include "Tree.h"
 
-int main()
-{
-	//ifstream myFile;
-	ifstream myFile("netflix_titles.csv");
-	
-	//while(myFile.good()){
-		//string line;
-		//getline(myFile,line, ',');
-		//cout << line << endl;
-	//}
-    
-    for(int i = 0; i < 10; i++){
-	    string line;
-		getline(myFile,line, ',');
-		cout << line << endl;		
-	}
+int main(){
+	Data data[10];
+	data[0].setCast("João cleber");
+	data[0].setId(0);
 
-    /*
-    	Por enquanto so o básico,
-    	o main é so para abrir o
-    	arquivo e exibir as infromações.
-    	
-		O unico  problema é  que parece  
-		que so é  possivel ler uma célula 
-		por vez.Então se executarmos o 
-		código  acima  ele vai exíbir 
-		o nome de cada coluna. 
-		
-		Para exibir os dados da tabela 
-		ele tem que ser executado mais 
-		vezes até ele descer para a
-		próxima linha.  
-    */  
+	data[1].setCast( "cleber");
+	data[1].setId(1);
+
+	data[2].setCast("João ");
+	data[2].setId(2);
+
+	Tree rv;
+
+	rv.insert(data[0]);
+	rv.insert(data[1]);
+	rv.insert(data[2]);
+
+	rv.inOrder();
+	std::cout << "\nRaiz: " << rv.getRoot()->getData().getId() << std::endl;
+
 }
-
