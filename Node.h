@@ -25,6 +25,9 @@ public:
 	{
 		right = node;
 	}
+	void setHeight(int height){
+		this->height = height;
+	}
 	
 	//Getters
 
@@ -36,5 +39,8 @@ public:
 	}
 	Node* getRight(){
 		return right;
+	}
+	int getHeight(){
+		return height;
 	}
 };
