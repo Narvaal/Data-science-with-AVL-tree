@@ -16,6 +16,7 @@ Tree Read(std::string file)
 	
     while(myFile.good()){
     	
+    	/* método antigo
     	string data_Linha [12];
     	for (int j = 0; j < sizeof(data_Linha)/sizeof(data_Linha[0]); j++){
     		string data_Atual;
@@ -30,12 +31,31 @@ Tree Read(std::string file)
 					string temp;
 					getline(myFile, temp, char(34));    			
 	    			data_Atual += temp;
-				}	
+				}
 			}
 
 			data_Linha[j] = data_Atual;
 		}
-				
+		*/	
+		
+		string data_Linha [12];
+		string data_Atual;
+		getline(myFile, data_Atual, myFile.widen('\n'));
+		int index = 0;
+		bool emAspas = false;
+		for (int j = 0; j < data_Atual.length(); j++){
+			if (data_Atual[j] == char(34) ){
+				emAspas = !emAspas;
+			}
+			
+			else if (data_Atual[j] == char(44) && !emAspas){
+				index++;
+				continue;
+			}
+			
+			data_Linha[index] += data_Atual[j];
+		}
+		
 		Data data;
 		data.setId(data_Linha[0]);
         data.setType(data_Linha[1]);
