@@ -1,23 +1,31 @@
-#include "Tree.h"
+#include "Analysis.h"
 
 int main(){
-	Data data[10];
-	data[0].setCast("João cleber");
-	data[0].setId(0);
-
-	data[1].setCast( "cleber");
-	data[1].setId(1);
-
-	data[2].setCast("João ");
-	data[2].setId(2);
-
-	Tree rv;
-
-	rv.insert(data[0]);
-	rv.insert(data[1]);
-	rv.insert(data[2]);
-
-	rv.inOrder();
-	std::cout << "\nRaiz: " << rv.getRoot()->getData().getId() << std::endl;
-
+	
+  Tree arv = Read("netflix_titles.csv");
+  //cout<<arv.getRoot()->getData().getId()<<endl;
+  Analysis a = Analysis(arv);
+  
+  //Funfa
+  //a.List(&Data::getDirector);
+  //a.List(&Data::getType);
+  //a.List(&Data::getRating);
+  //a.List(&Data::getListedIn);
+  //a.List(&Data::getCountry);
+  //a.List(&Data::getDateAdded);
+  //a.List(&Data::getDuration);
+  //a.List(&Data::getDescription);
+  //a.List(&Data::getCast);
+  //a.List(&Data::getReleaseYear);
+  
+  //a.Fragment(0, 1000, 4);
+  
+  //Problema
+  //a.List(&Data::getTitle); //problema
+    
+  string (Data::*cT[])() = {&Data::getDirector, &Data::getTitle};
+  string c[] = {"Aditya Kripalani", "Tikli and Laxmi Bomb"};
+  //a.Filter( cT, c, 2);
+  
+  return 0;
 }
