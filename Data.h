@@ -16,7 +16,7 @@ class Data{
         std::string rating;
         std::string duration;
         
-        //Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
+        //Nï¿½o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string listed_in;
         std::string description;
         
@@ -62,7 +62,7 @@ class Data{
             duration = d;
         }
 		
-		//Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
+		//Nï¿½o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
 		void setListedIn(std::string l){
 			listed_in = l;
 		}
@@ -103,7 +103,7 @@ class Data{
             return duration;
         }
         
-        //Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
+        //Nï¿½o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string getListedIn(){
         	return listed_in;
 		}
