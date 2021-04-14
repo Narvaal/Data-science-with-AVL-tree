@@ -18,18 +18,14 @@ int main(){
   //a.List(&Data::getCast);
   //a.List(&Data::getReleaseYear);
   
-  //a.Fragment(0, 1000, 2);
+  //a.Fragment(0, 1000, 4);
   
   //Problema
   //a.List(&Data::getTitle); //problema
-  
-
-  
-  
-
+    
   string (Data::*cT[])() = {&Data::getDirector, &Data::getTitle};
   string c[] = {"Aditya Kripalani", "Tikli and Laxmi Bomb"};
-  a.Filter( cT, c);
+  //a.Filter( cT, c, 2);
   
   return 0;
 }

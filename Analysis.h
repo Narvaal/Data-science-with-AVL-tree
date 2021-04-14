@@ -36,19 +36,14 @@ class Analysis{
 				FilterAux(node -> getLeft(), N, current, cResults, comparatorTypes, comparators);
 				
 				bool filtered = false;
-				cout<<"2"<<endl;
 				for (int i = 0; i < N; i++){
-					cout<<comparators[i]<<endl;
-					cout<<(node->getData().*comparatorTypes[i])()<<endl;
 					if ( !Compare( comparators[i], (node->getData().*comparatorTypes[i])() ) ){
-						cout<<"3"<<endl;
 						filtered = true;
 					}
 
 				}
 				
 				if (!filtered){
-					cout<<"4"<<endl;
 					*(cResults + *current) = node->getData();
 					*current = *current + 1;
 				}
@@ -135,8 +130,9 @@ class Analysis{
 			arv = a;
 		}
 		
-		Data * Filter( string (Data::*comparatorTypes[])(), string comparators[]  ){
+		Data * Filter( string (Data::*comparatorTypes[])(), string comparators[], int N  ){
 			
+			/*
 			int N = 0;
 			while (  comparatorTypes[N] != NULL  ){
 				
@@ -146,16 +142,28 @@ class Analysis{
 				
 				N++;
 			}
-			
+			*/
 			Data * cResults = new Data [arv.qtNodes()];
 			
 			int current = 0;
-			cout<<"1"<<endl;
 			FilterAux(arv.getRoot(), N, &current, cResults, comparatorTypes, comparators);
-			cout<<"4"<<endl;
 			///*
+			int none;
 			for (int i = 0; i < current; i++){
-				cout<< cResults[i].getId()<<endl;
+				for (int j = 0; j < N; j++){
+					for (int k = 0; k < j; k++){
+						cout<<" ";
+					}
+					cout<<"-";
+					if ( (cResults[i].*comparatorTypes[j])() != "" ){
+						cout<< (cResults[i].*comparatorTypes[j])()<<endl;
+					}
+					else if (!none){
+						cout<<"None"<<endl;
+						none = true;
+					}
+				}
+				cout<<""<<endl;
 			}
 			//*/
 			
@@ -187,7 +195,7 @@ class Analysis{
 			FragmentAux(begin, end, step, arv.getRoot(), &N, /*&cResults);*/ cResults);
 			
 			
-			for (int i = 0; i < ((end - begin) / step) + 1; i++){
+			for (int i = 1; i < ((end - begin) / step) + 1; i++){
 				cout<< cResults[i].getId()<<endl;
 			}
 			
