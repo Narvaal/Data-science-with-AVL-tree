@@ -51,6 +51,8 @@ class Tree
     private:
         Node *root;
 
+		    int searchKey;
+		
         int height(Node *node)
         {
             return node == NULL? -1:node->getHeight();

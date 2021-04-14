@@ -1,38 +1,76 @@
-#include "Data.h"
 #include<fstream>
+#include<iostream>
+#include "Tree.h"
 using namespace std;
 
-int main()
-{
-	//ifstream myFile;
-	ifstream myFile("netflix_titles.csv");
-	
-	//while(myFile.good()){
-		//string line;
-		//getline(myFile,line, ',');
-		//cout << line << endl;
-	//}
-    
-    for(int i = 0; i < 10; i++){
-	    string line;
-		getline(myFile,line, ',');
-		cout << line << endl;		
-	}
 
-    /*
-    	Por enquanto so o básico,
-    	o main é so para abrir o
-    	arquivo e exibir as infromações.
+
+Tree Read(std::string file)
+{
+	ifstream myFile(file.c_str());
+	
+    string tipos;
+    getline(myFile, tipos, myFile.widen('\n'));
+	
+	Tree csvArv;
+	
+    while(myFile.good()){
     	
-		O unico  problema é  que parece  
-		que so é  possivel ler uma célula 
-		por vez.Então se executarmos o 
-		código  acima  ele vai exíbir 
-		o nome de cada coluna. 
+    	/* m�todo antigo
+    	string data_Linha [12];
+    	for (int j = 0; j < sizeof(data_Linha)/sizeof(data_Linha[0]); j++){
+    		string data_Atual;
+    		
+    		if (j == (sizeof(data_Linha)/sizeof(data_Linha[0])) - 1 ){
+    			getline(myFile, data_Atual, myFile.widen('\n'));
+			}
+			else{
+				getline(myFile, data_Atual, ',');
+				if (data_Atual[0] == char(34)){
+					string nulo;
+					string temp;
+					getline(myFile, temp, char(34));    			
+	    			data_Atual += temp;
+				}
+			}
+
+			data_Linha[j] = data_Atual;
+		}
+		*/	
 		
-		Para exibir os dados da tabela 
-		ele tem que ser executado mais 
-		vezes até ele descer para a
-		próxima linha.  
-    */  
+		string data_Linha [12];
+		string data_Atual;
+		getline(myFile, data_Atual, myFile.widen('\n'));
+		int index = 0;
+		bool emAspas = false;
+		for (int j = 0; j < data_Atual.length(); j++){
+			if (data_Atual[j] == char(34) ){
+				emAspas = !emAspas;
+			}
+			
+			else if (data_Atual[j] == char(44) && !emAspas){
+				index++;
+				continue;
+			}
+			
+			data_Linha[index] += data_Atual[j];
+		}
+		
+		Data data;
+		data.setId(data_Linha[0]);
+        data.setType(data_Linha[1]);
+        data.setTitle(data_Linha[2]);
+        data.setDirector(data_Linha[3]);
+        data.setCast(data_Linha[4]);
+        data.setCountry(data_Linha[5]);
+        data.setDateAdded(data_Linha[6]);
+        data.setReleaseYear(data_Linha[7]);
+        data.setRating(data_Linha[8]);
+        data.setDuration(data_Linha[9]);
+        data.setListedIn(data_Linha[10]);
+        data.setDescription(data_Linha[11]);
+		
+		csvArv.insert(data);
+	}	
+	return csvArv;
 }
