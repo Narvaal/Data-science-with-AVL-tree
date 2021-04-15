@@ -3,46 +3,36 @@
 #include "Tree.h"
 using namespace std;
 
+/*
+	Função para fazer a leitura do .csv. Basicamente estámos 
+	utilizando o a blioteca fstream e iostream para lermos o arquivo
+	.csv.E Tratamos os dados e passamos para nossa classe de dados Data
+	
+	Simplificadamente o arquivo Read.h percorre a tabela e coloca o valor de cada
+	coluno em um  atributo da classe de dados Data
 
+*/
 
 Tree Read(std::string file)
 {
-	ifstream myFile(file.c_str());
 	
-    string tipos;
-    getline(myFile, tipos, myFile.widen('\n'));
+    ifstream myFile(file.c_str()); //abrindo o arquivo
 	
-	Tree csvArv;
+    string tipos;     
+    getline(myFile, tipos, myFile.widen('\n'));  
 	
-    while(myFile.good()){
-    	
-    	/* m�todo antigo
-    	string data_Linha [12];
-    	for (int j = 0; j < sizeof(data_Linha)/sizeof(data_Linha[0]); j++){
-    		string data_Atual;
+    Tree csvArv; // criando uma classe arvore
+	
+    while(myFile.good()){ //Enquanto o arquivo não acabar 
     		
-    		if (j == (sizeof(data_Linha)/sizeof(data_Linha[0])) - 1 ){
-    			getline(myFile, data_Atual, myFile.widen('\n'));
-			}
-			else{
-				getline(myFile, data_Atual, ',');
-				if (data_Atual[0] == char(34)){
-					string nulo;
-					string temp;
-					getline(myFile, temp, char(34));    			
-	    			data_Atual += temp;
-				}
-			}
-
-			data_Linha[j] = data_Atual;
-		}
-		*/	
-		
-		string data_Linha [12];
-		string data_Atual;
-		getline(myFile, data_Atual, myFile.widen('\n'));
+		string data_Linha [12]; // array de string 
+		string data_Atual; // dado atual 
+		getline(myFile, data_Atual, myFile.widen('\n')); // pegando o valor do dado  atual e passando para data 
 		int index = 0;
 		bool emAspas = false;
+	    
+	    	// Operação para  saber so existem algum tipo de erro no arquivo, tais como datas com " ou ' 
+	    
 		for (int j = 0; j < data_Atual.length(); j++){
 			if (data_Atual[j] == char(34) ){
 				emAspas = !emAspas;
@@ -55,9 +45,13 @@ Tree Read(std::string file)
 			
 			data_Linha[index] += data_Atual[j];
 		}
-		
-		Data data;
-		data.setId(data_Linha[0]);
+	
+	 //Apos isso é passado os valores do vetor para nossa classe de dados Data.
+	    
+	Data data; // ciração da classe Data 
+	    
+	//abaixo usamos os setters para  definir os  valores para nossa classe de dados.      
+	data.setId(data_Linha[0]);
         data.setType(data_Linha[1]);
         data.setTitle(data_Linha[2]);
         data.setDirector(data_Linha[3]);
@@ -70,7 +64,7 @@ Tree Read(std::string file)
         data.setListedIn(data_Linha[10]);
         data.setDescription(data_Linha[11]);
 		
-		csvArv.insert(data);
+	csvArv.insert(data); //Inserindo a nossa classe Data na árvore avl 
 	}	
-	return csvArv;
+	return csvArv;//Retorna a árvore.  
 }
