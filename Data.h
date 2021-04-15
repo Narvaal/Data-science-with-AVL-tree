@@ -3,7 +3,22 @@
 
 #include <stdlib.h> //pra usar o atoi()
 
+/*
+    O arquivo data  serve para armazenar os valores da tabela em uma classe.
+    Nós criamos o arquivo data para ter fácil  acesso ao atributos de uma linha.
+    Ou seja com a classe data temos todos os elementos de uma linha armazenadas
+    em um só objeto.
+    
+    Isso serve para quando inserirmos na classe árvore seja fácil transitar entre
+    os elementos de uma linha.
+    
+    A classe data possui um atributo para cada coluna.Que  são:  Id, Titulo, País,  etc.
+
+*/
+
 class Data{
+	
+    // Atributos da classe que são iguais as colunas da tabela 
     private:
         int id;
         std::string type;
@@ -15,25 +30,26 @@ class Data{
         std::string release_year;
         std::string rating;
         std::string duration;
-        
-        //N�o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string listed_in;
         std::string description;
         
     public:
-    	
+    	// Construtor da classe data, não precisamos definir 
+    	//os valores para nulo pois todos serão inseridos por uma função.
     	Data(){
     		
 		}
     	    
+	
         //Setters 
-
-        void setId(std::string i){
+        void setId(std::string i){ // converte  texto para inteiro pois usaremos inteiros para ordenar a arvore. 
         	i.erase(0,1); //exclui o s
         	int intI;
-        	intI = atoi(i.c_str()); //Aparentemente converte de str pra int
+        	intI = atoi(i.c_str()); 
             id = intI;
         }
+	
+	//Abaixos temos todas as entradas do classe Data
         void setType(std::string t){
             type = t;
         }
@@ -62,16 +78,16 @@ class Data{
             duration = d;
         }
 		
-		//N�o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
-		void setListedIn(std::string l){
+	void setListedIn(std::string l){
 			listed_in = l;
-		}
-		void setDescription(std::string d){
+	}
+	void setDescription(std::string d){
 			description = d;
-		}
+	}
 		
         //Getters  
-
+	
+	//Abaixo temos todas as saidas da classe Data 
         int getId(){
             return id;
         }
@@ -102,12 +118,10 @@ class Data{
         std::string getDuration(){
             return duration;
         }
-        
-        //N�o sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string getListedIn(){
         	return listed_in;
-		}
-		std::string getDescription(){
-			return description;
-		}
+	}
+	std::string getDescription(){
+		return description;
+	}
 };
