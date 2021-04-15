@@ -12,15 +12,15 @@
 	A classe não possui outros métodos além dos métodos de acesso. 
 */
 
-class Node{
+class Node
+{
 
-	private:
+private:
 	Node *left, *right;
 	Data values;
 	int height;
 
-
-	public:
+public:
 	//Setters
 	Node(Data data)
 	{
@@ -29,7 +29,7 @@ class Node{
 		right = NULL;
 		height = 0;
 	}
-    	void setLeft(Node *node)
+	void setLeft(Node *node)
 	{
 		left = node;
 	}
@@ -37,22 +37,27 @@ class Node{
 	{
 		right = node;
 	}
-	void setHeight(int height){
+	void setHeight(int height)
+	{
 		this->height = height;
 	}
-	
+
 	//Getters
 
-	Data getData(){
+	Data getData()
+	{
 		return values;
 	}
-	Node* getLeft(){
-		return left; 
+	Node *getLeft()
+	{
+		return left;
 	}
-	Node* getRight(){
+	Node *getRight()
+	{
 		return right;
 	}
-	int getHeight(){
+	int getHeight()
+	{
 		return height;
 	}
 };
