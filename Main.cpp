@@ -7,6 +7,7 @@ int main(){
   Analysis a = Analysis(arv);
   
   //Funfa
+  a.Count(&Data::getDirector);
   //a.List(&Data::getDirector);
   //a.List(&Data::getType);
   //a.List(&Data::getRating);
@@ -25,7 +26,7 @@ int main(){
     
   string (Data::*cT[])() = {&Data::getDirector, &Data::getTitle};
   string c[] = {"Aditya Kripalani", "Tikli and Laxmi Bomb"};
-  //a.Filter( cT, c, 2);
+  a.Filter( cT, c, 2);
   
   return 0;
 }
