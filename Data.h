@@ -1,6 +1,14 @@
 #include<iostream>
 #include<string>
 
+
+/*
+   Classe dos dados, serve para armazenar cada linha da tabela de um forma ordenada. 
+   Ou seja, cada atributo da classe representa uma coluna da tabela e vice-versa.
+   
+   Depois nos temos os getters e setters da classe para podermos trabalhar com a classe.
+*/
+
 #include <stdlib.h> //pra usar o atoi()
 
 /*
@@ -34,18 +42,22 @@ class Data{
         std::string description;
         
     public:
+
     	// Construtor da classe data, não precisamos definir 
     	//os valores para nulo pois todos serão inseridos por uma função.
+
     	Data(){
     		
 		}
     	    
 	
         //Setters 
+
         void setId(std::string i){ // converte  texto para inteiro pois usaremos inteiros para ordenar a arvore. 
         	i.erase(0,1); //exclui o s
         	int intI;
         	intI = atoi(i.c_str()); 
+
             id = intI;
         }
 	
@@ -76,6 +88,7 @@ class Data{
         }
         void setDuration(std::string d){
             duration = d;
+
         }
 		
 	void setListedIn(std::string l){
@@ -119,6 +132,7 @@ class Data{
             return duration;
         }
         std::string getListedIn(){
+
         	return listed_in;
 	}
 	std::string getDescription(){

@@ -1,4 +1,5 @@
 *.exe
 .vscode/
 *.gch
+*.txt
 TestChamber.cpp
