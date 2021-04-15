@@ -51,7 +51,7 @@ class Tree
     private:
         Node *root;
 
-		int searchKey;
+		    int searchKey;
 		
         int height(Node *node)
         {

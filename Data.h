@@ -1,6 +1,14 @@
 #include<iostream>
 #include<string>
 
+
+/*
+   Classe dos dados, serve para armazenar cada linha da tabela de um forma ordenada. 
+   Ou seja, cada atributo da classe representa uma coluna da tabela e vice-versa.
+   
+   Depois nos temos os getters e setters da classe para podermos trabalhar com a classe.
+*/
+
 #include <stdlib.h> //pra usar o atoi()
 
 class Data{
@@ -15,23 +23,21 @@ class Data{
         std::string release_year;
         std::string rating;
         std::string duration;
-        
-        //Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string listed_in;
         std::string description;
         
     public:
-    	
+    	// contrutor da classe Data. 
     	Data(){
     		
 		}
     	    
         //Setters 
-
-        void setId(std::string i){
-        	i.erase(0,1); //exclui o s
-        	int intI;
-        	intI = atoi(i.c_str()); //Aparentemente converte de str pra int
+	
+        void setId(std::string i){ //Nos usamos o id para organizar os dados na arvore		
+            i.erase(0,1); //exclui o s
+            int intI;
+            intI = atoi(i.c_str()); 
             id = intI;
         }
         void setType(std::string t){
@@ -60,15 +66,13 @@ class Data{
         }
         void setDuration(std::string d){
             duration = d;
-        }
-		
-		//Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
-		void setListedIn(std::string l){
-			listed_in = l;
-		}
-		void setDescription(std::string d){
-			description = d;
-		}
+        }	
+	void setListedIn(std::string l){
+		listed_in = l;
+	}
+	void setDescription(std::string d){
+		description = d;
+	}
 		
         //Getters  
 
@@ -102,12 +106,10 @@ class Data{
         std::string getDuration(){
             return duration;
         }
-        
-        //Não sei c tinha algum motivo pra n colocar esses 2, mas tava faltando
         std::string getListedIn(){
-        	return listed_in;
-		}
-		std::string getDescription(){
-			return description;
-		}
+            return listed_in;
+	}
+	std::string getDescription(){
+	    return description;
+	}
 };

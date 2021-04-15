@@ -16,7 +16,7 @@ Tree Read(std::string file)
 	
     while(myFile.good()){
     	
-    	/* método antigo
+    	/* mï¿½todo antigo
     	string data_Linha [12];
     	for (int j = 0; j < sizeof(data_Linha)/sizeof(data_Linha[0]); j++){
     		string data_Atual;
